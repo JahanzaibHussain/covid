@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createBrowserHistory } from "history";
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import "./assets/scss/black-dashboard-react.scss";
+import "./assets/demo/demo.css";
+import "./assets/css/nucleo-icons.css";
+
+const hist = createBrowserHistory();
+
+
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode history={hist}>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
