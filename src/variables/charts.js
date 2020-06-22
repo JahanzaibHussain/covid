@@ -1,20 +1,11 @@
-/*!
+import axios  from "axios";
 
-=========================================================
-* Black Dashboard React v1.1.0
-=========================================================
+const url= "https://covid19.mathdro.id/api";
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
+const {data} =  axios.get(`${url}/daily`)
 
-* Coded by Creative Tim
+console.log(data)
 
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 // ##############################
 // // // Chart variables
 // #############################
