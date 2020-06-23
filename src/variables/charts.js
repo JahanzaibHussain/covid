@@ -1,11 +1,3 @@
-import axios  from "axios";
-
-const url= "https://covid19.mathdro.id/api";
-
-const {data} =  axios.get(`${url}/daily`)
-
-console.log(data)
-
 // ##############################
 // // // Chart variables
 // #############################

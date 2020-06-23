@@ -3,45 +3,178 @@ import React, { useState } from 'react'
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 // reactstrap components
 import {
   Button,
-  Container,
   ButtonGroup,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
-  Table,
   Row,
   Col,
-  UncontrolledTooltip
 } from "reactstrap";
-
-// core components
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4
-} from "../variables/charts.js";
 
 
 function Chart({dailyData}) {
 
+    //dailyData = dailyData.slice(130,dailyData.length);
+    
+    const months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ]
+    let chartExample1 = {
+        data1: canvas => {
+          let ctx = canvas.getContext("2d");
+      
+          let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+      
+          gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+          gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+          gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+      
+          return {
+            labels: dailyData.map( data => months[new Date(data.reportDate).getMonth()]),
+            datasets: [
+              {
+                label: "Confirmed",
+                fill: true,
+                backgroundColor: gradientStroke,
+                borderColor: "#1f8ef1",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#1f8ef1",
+                pointBorderColor: "rgba(255,255,255,0)",
+                pointHoverBackgroundColor: "#1f8ef1",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+                data: dailyData.map( data => data.confirmed.total )
+              }
+            ]
+          };
+        },
+        data2: canvas => {
+          let ctx = canvas.getContext("2d");
+      
+          let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+      
+          gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+          gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+          gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+      
+          return {
+            labels: dailyData.map( data => months[new Date(data.reportDate).getMonth()]),
+            datasets: [
+              {
+                label: "Deaths",
+                fill: true,
+                backgroundColor: gradientStroke,
+                borderColor: "#e14eca",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#e14eca",
+                pointBorderColor: "rgba(12,12,12,0)",
+                pointHoverBackgroundColor: "#e14eca",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+                data: dailyData.map( data => data.deaths.total )
+              }
+            ]
+          };
+        },
+        data3: canvas => {
+          let ctx = canvas.getContext("2d");
+      
+          let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+      
+          gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+          gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+          gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+      
+          return {
+            labels: dailyData.map( data => months[new Date(data.reportDate).getMonth()]),
+            datasets: [
+              {
+                label: "Recovered",
+                fill: true,
+                backgroundColor: gradientStroke,
+                borderColor: "#2dce89",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#2dce89",
+                pointBorderColor: "rgba(255,255,255,0)",
+                pointHoverBackgroundColor: "#2dce89",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+                data: dailyData.map( data => data.recovered.total )
+              }
+            ]
+          };
+        },
+        options: {
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            tooltips: {
+              backgroundColor: "#f5f5f5",
+              titleFontColor: "#333",
+              bodyFontColor: "#666",
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+            },
+            responsive: true,
+            scales: {
+              yAxes: [
+                {
+                  barPercentage: 1.6,
+                  gridLines: {
+                    drawBorder: false,
+                    color: "rgba(29,140,248,0.0)",
+                    zeroLineColor: "transparent"
+                  },
+                  ticks: {
+                    suggestedMin: 60,
+                    suggestedMax: 125,
+                    padding: 20,
+                    fontColor: "#9a9a9a"
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  barPercentage: 1.6,
+                  gridLines: {
+                    drawBorder: false,
+                    color: "rgba(29,140,248,0.1)",
+                    zeroLineColor: "transparent"
+                  },
+                  ticks: {
+                    padding: 20,
+                    fontColor: "#9a9a9a"
+                  }
+                }
+              ]
+            }
+        }
+    };
+
     const [bigChartData, setbigChartData] = useState("data1")
 
     return (
-        < >
+        <>
             <Row>
                 <Col xs="12">
                 <Card className="card-chart">
@@ -80,7 +213,7 @@ function Chart({dailyData}) {
                             </span>
                             </Button>
                             <Button
-                            color="info"
+                            color="danger"
                             id="1"
                             size="sm"
                             tag="label"
@@ -102,7 +235,7 @@ function Chart({dailyData}) {
                             </span>
                             </Button>
                             <Button
-                            color="info"
+                            color="success"
                             id="2"
                             size="sm"
                             tag="label"

@@ -39,7 +39,7 @@ function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
                             start={0}
                             end={recovered.value}
                             separator={','}
-                            duration={2}
+                            duration={1}
                         />
                     </CardTitle>
                     </CardHeader>
@@ -63,7 +63,7 @@ function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
                                 start={0}
                                 end={deaths.value}
                                 separator={','}
-                                duration={2}
+                                duration={1}
                             />
                         </CardTitle>
                     </CardHeader>
@@ -87,7 +87,7 @@ function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
                             start={0}
                             end={confirmed.value}
                             separator={','}
-                            duration={2}
+                            duration={1}
                         />
                     </CardTitle>
                     </CardHeader>
