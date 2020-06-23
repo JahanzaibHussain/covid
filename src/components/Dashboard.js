@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
+import  '../assets/css/app.css'
 import axios from 'axios'
 // reactstrap components
 import {
-  Container,
-  Label,
-  Input,
-  Row,
-  Col,
+  Container
 } from "reactstrap";
 
 import Cards from './Cards.js';
@@ -80,8 +77,6 @@ function Dashboard() {
                 return null;
             } 
             const modifiedUrl= `${url}/countries/${country}/confirmed`
-
-            console.log(modifiedUrl)
             const {data } = await axios(modifiedUrl)
             setCountryData(data);
         }
@@ -98,6 +93,7 @@ function Dashboard() {
         setCountry(country)
     }
 
+    const output = ( !countryData.length ) ? <Chart dailyData={dailyData} /> : <Tables countryData={countryData} />
     return (
         <>
             
@@ -105,8 +101,7 @@ function Dashboard() {
                 <div className="content mt-4">
                     <CountryPicker country={country} countries={countries} handleChange={handleChange}  />
                     <Cards data={data} />
-                    <Tables countryData={countryData} />
-                    <Chart dailyData={dailyData} />
+                    {output}
                 </div>
             </Container>
 

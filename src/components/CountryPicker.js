@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import logo from '../assets/img/covidLogo.png'
 
 // reactstrap components
 import {
@@ -18,11 +20,15 @@ import {
         <div>
 
             <Row className="mb-2">
-                <Col lg="3" md="3" className="mt-3"><h1> Covid-19</h1> </Col>
-                <Col lg="6" md="6" className="text-center mt-3">
+                <Col lg="4" md="4" className="mt-3 text-center text-md-left">
+                    <Link to="/">
+                        <h1><img className="logo" src={logo} alt="Logo" />  Covid-19</h1> 
+                    </Link>
+                </Col>
+                <Col lg="4" md="4" className="text-center mt-4">
                     <h1>{country}</h1>
                 </Col>
-                <Col lg="3" md="3">
+                <Col lg="4" md="4">
                     <Label for="exampleSelectMulti">Select Country</Label>
                     <Input defaultValue={'DEFAULT'} type="select" onChange={ e => handleChange(e.target.value)} >
                         <option value="DEFAULT" disabled>Choose a country...</option>

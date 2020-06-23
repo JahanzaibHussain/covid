@@ -162,7 +162,7 @@ function Chart({dailyData}) {
                     zeroLineColor: "transparent"
                   },
                   ticks: {
-                    padding: 20,
+                    padding: 0,
                     fontColor: "#9a9a9a"
                   }
                 }
@@ -209,7 +209,7 @@ function Chart({dailyData}) {
                                 Confirmed
                             </span>
                             <span className="d-block d-sm-none">
-                                <i className="tim-icons icon-single-02" />
+                                <i className="tim-icons icon-sound-wave" />
                             </span>
                             </Button>
                             <Button
@@ -231,7 +231,7 @@ function Chart({dailyData}) {
                                 Deaths
                             </span>
                             <span className="d-block d-sm-none">
-                                <i className="tim-icons icon-gift-2" />
+                                <i className="tim-icons icon-alert-circle-exc " />
                             </span>
                             </Button>
                             <Button
@@ -253,7 +253,7 @@ function Chart({dailyData}) {
                                 Recover
                             </span>
                             <span className="d-block d-sm-none">
-                                <i className="tim-icons icon-tap-02" />
+                                <i className="tim-icons icon-bulb-63" />
                             </span>
                             </Button>
                         </ButtonGroup>
@@ -261,9 +261,8 @@ function Chart({dailyData}) {
                     </Row>
                     </CardHeader>
                     <CardBody>
-                    <div className="chart-area">
+                    <div className="chart-area" style={{height: '50vh'}} >
                         <Line
-                            labels
                             data={chartExample1[bigChartData]}                            
                             options={chartExample1.options}
                         />

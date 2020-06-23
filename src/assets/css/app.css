@@ -1,0 +1,44 @@
+.logo{
+    width: 67px;
+    margin-bottom: 7px;
+    margin-left: 27px;
+}
+
+.welcome{ 
+    background-image: url(../img/covid-bg.jpg);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.welcome:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+}
+
+.welcome  h1 {
+    position: relative;
+    font-size: 50px;
+    background: #11adcc;
+    opacity: 0.8;
+    color: #021431;
+    padding: 22px;
+    border-radius: 5px;
+}
+
+.welcome  h1:hover{
+    background: #128da5;
+    opacity: 0.8;
+    color: #021431;
+    padding: 22px;
+    border-radius: 5px;
+}

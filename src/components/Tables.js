@@ -22,8 +22,8 @@ function Tables({countryData}) {
             <tr key={i} >
                 <td>{i + 1  }</td>
                 <td>{data.combinedKey}</td>
-                <td>{data.confirmed}</td>
-                <td>{data.recovered}</td>
+                <td> <span className="text-info"> {data.confirmed} </span></td>
+                <td> <span className="text-success"> {data.recovered} </span></td>
                 <td> <span className="text-danger"> {data.deaths} </span></td>
                 <td className="text-center">{ new Date( data.lastUpdate).toLocaleDateString()  }</td>
             </tr>
@@ -40,7 +40,8 @@ function Tables({countryData}) {
                         <CardTitle tag="h1"> Country Data </CardTitle>
                     </CardHeader>
                     <CardBody>
-                        <Table className="tablesorter">
+                        <div className="table-responsive ps">
+                            <Table className="tablesorter">
                             <thead className="text-primary">
                                 <tr>
                                     <th>S.no</th>
@@ -57,6 +58,7 @@ function Tables({countryData}) {
 
                             </tbody>
                         </Table>
+                        </div>
                     </CardBody>
                 </Card>
                 </Col>

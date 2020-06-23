@@ -10,17 +10,8 @@ import {
     Row,
     Col,
   } from "reactstrap";
-
-import { Line, Bar } from "react-chartjs-2";
-// core components
-import {
-    chartExample1,
-    chartExample2,
-    chartExample3,
-    chartExample4
-  } from "../variables/charts.js";
   
-function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
+function Cards({data:  {confirmed, recovered, deaths} } ) {
 
     if(!confirmed){
         return <h2 className="text-center"> Loading.... </h2>
@@ -30,36 +21,55 @@ function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
           <Row>
                 <Col lg="4">
                     <Card className="card-chart">
-                    <CardHeader>
-                    <h5 className="card-category">Total Recovered</h5>
-                    <CardTitle tag="h3">
-                        <i className="tim-icons icon-bell-55 text-info"/>
-                        {" "}
-                        <CountUp
-                            start={0}
-                            end={recovered.value}
-                            separator={','}
-                            duration={1}
-                        />
-                    </CardTitle>
-                    </CardHeader>
-                    <CardBody>
-                    <div className="chart-area">
-                        <Line
-                            data={chartExample2.data}
-                            options={chartExample2.options}
-                        />
-                    </div>
-                    </CardBody>
-                </Card>
+                        <CardHeader>
+                        <h5 className="card-category">Effected</h5>
+                        <CardTitle tag="h1">
+                            <i className="tim-icons icon-sound-wave text-info" /> {" "}
+                            <CountUp
+                                className="text-info"
+                                start={0}
+                                end={confirmed.value}
+                                separator={','}
+                                duration={1}
+                            />
+                        </CardTitle>
+                        </CardHeader>
+                        <CardBody>
+                        
+                        </CardBody>
+
+                    </Card>
+                </Col>
+                <Col lg="4">
+                    
+                    <Card className="card-chart">
+                        <CardHeader>
+                        <h5 className="card-category">Total Recovered</h5>
+                        <CardTitle tag="h1">
+                            <i className="tim-icons icon-bulb-63 text-success"/>
+                            {" "}
+                            <CountUp 
+                                className="text-success"
+                                start={0}
+                                end={recovered.value}
+                                separator={','}
+                                duration={1}
+                            />
+                        </CardTitle>
+                        </CardHeader>
+                        <CardBody>
+                        
+                        </CardBody>
+                    </Card>
                 </Col>
                 <Col lg="4">
                     <Card className="card-chart">
                     <CardHeader>
                         <h5 className="card-category">Total Deaths</h5>
-                        <CardTitle tag="h3">
-                            <i className="tim-icons icon-delivery-fast text-primary" />{" "}
+                        <CardTitle tag="h1">
+                            <i className="tim-icons icon-alert-circle-exc  text-primary" />{" "}
                             <CountUp
+                                className="text-danger"
                                 start={0}
                                 end={deaths.value}
                                 separator={','}
@@ -68,39 +78,11 @@ function Cards({data:  {confirmed, recovered, deaths, lastUpdate} } ) {
                         </CardTitle>
                     </CardHeader>
                     <CardBody>
-                        <div className="chart-area">
-                            <Bar
-                            data={chartExample3.data}
-                            options={chartExample3.options}
-                            />
-                        </div>
+                        
                     </CardBody>
                 </Card>
                 </Col>
-                <Col lg="4">
-                    <Card className="card-chart">
-                    <CardHeader>
-                    <h5 className="card-category">Effected</h5>
-                    <CardTitle tag="h3">
-                        <i className="tim-icons icon-send text-success" /> {" "}
-                        <CountUp
-                            start={0}
-                            end={confirmed.value}
-                            separator={','}
-                            duration={1}
-                        />
-                    </CardTitle>
-                    </CardHeader>
-                    <CardBody>
-                    <div className="chart-area">
-                        <Line
-                            data={chartExample4.data}
-                            options={chartExample4.options}
-                        />
-                    </div>
-                    </CardBody>
-                </Card>
-                </Col>
+                
             </Row>  
         </>
     )
