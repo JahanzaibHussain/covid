@@ -8,7 +8,6 @@ import {
     Col,
     Label,
     Input,
-    Container
 } from "reactstrap";
 
   function CountryPicker( {countries, handleChange, country} ) {
@@ -19,7 +18,6 @@ import {
 
     return (
         <div>
-
             <Row className="mb-2">
                 <Col lg="4" md="4" className="mt-3 text-center text-md-left">
                     <Link to="/">
