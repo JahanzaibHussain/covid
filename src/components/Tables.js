@@ -40,7 +40,7 @@ function Tables({countryData}) {
                         <CardTitle tag="h1"> Country Data </CardTitle>
                     </CardHeader>
                     <CardBody>
-                        <div className="table-responsive ps">
+                        <div className="table-responsive-sm">
                             <Table className="tablesorter">
                             <thead className="text-primary">
                                 <tr>

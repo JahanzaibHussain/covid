@@ -7,7 +7,8 @@ import {
     Row,
     Col,
     Label,
-    Input
+    Input,
+    Container
 } from "reactstrap";
 
   function CountryPicker( {countries, handleChange, country} ) {
@@ -22,7 +23,7 @@ import {
             <Row className="mb-2">
                 <Col lg="4" md="4" className="mt-3 text-center text-md-left">
                     <Link to="/">
-                        <h1><img className="logo" src={logo} alt="Logo" />  Covid-19</h1> 
+                        <h2><img className="logo" src={logo} alt="Logo" />  Covid-19</h2> 
                     </Link>
                 </Col>
                 <Col lg="4" md="4" className="text-center mt-4">
