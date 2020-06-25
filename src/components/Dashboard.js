@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react'
 import  '../assets/css/app.css'
 import axios from 'axios'
 // reactstrap components
-import {
-  Container
-} from "reactstrap";
 
 import Cards from './Cards.js';
 import Chart from './Chart.js';
 import CountryPicker from './CountryPicker.js';
 import Tables from './Tables.js';
+
+import { Container, Row, Nav, NavItem, NavLink } from "reactstrap";
+
 
 function Dashboard() {
     
@@ -102,7 +102,20 @@ function Dashboard() {
                     <CountryPicker country={country} countries={countries} handleChange={handleChange}  />
                     <Cards data={data} />
                     {output}
-                </div>
+                    <footer className="text-center">
+                        <div className="copyright">
+                            © {new Date().getFullYear()} made by{" "}
+                            <a
+                            href="https://github.com/JahanzaibHussain"
+                            target="_blank"
+                            >
+                            @Zaib 
+                            </a>{" "} with{" "}
+                            <i className="tim-icons icon-heart-2" />
+                        </div>
+                    </footer>
+            </div>
+
             </Container>
 
         </>
