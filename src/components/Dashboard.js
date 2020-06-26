@@ -9,7 +9,8 @@ import Chart from './Chart.js';
 import CountryPicker from './CountryPicker.js';
 import Tables from './Tables.js';
 
-import { Container, Row, Nav, NavItem, NavLink } from "reactstrap";
+import { Container } from "reactstrap";
+import Footer from './Footer';
 
 
 function Dashboard() {
@@ -102,18 +103,7 @@ function Dashboard() {
                     <CountryPicker country={country} countries={countries} handleChange={handleChange}  />
                     <Cards data={data} />
                     {output}
-                    <footer className="text-center">
-                        <div className="copyright">
-                            © {new Date().getFullYear()} made by{" "}
-                            <a
-                            href="https://github.com/JahanzaibHussain"
-                            target="_blank"
-                            >
-                            @Zaib 
-                            </a>{" "} with{" "}
-                            <i className="tim-icons icon-heart-2" />
-                        </div>
-                    </footer>
+                   <Footer/>
             </div>
 
             </Container>
